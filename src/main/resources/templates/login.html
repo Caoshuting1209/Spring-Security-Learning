@@ -1,0 +1,22 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+</head>
+<body>
+<h1>Login</h1>
+<div th:if="${param.error}">
+    Wrong uesrname and password.</div>
+<form th:action="@{/login}" method="post">
+    <!--动态login参数，表单中会自动生成csrf隐藏字段，防止csrf攻击，并且可以自动匹配前缀-->
+    <div>
+        <!--这里name默认为username，如果需要改动，则在表单登陆设置formLogin中重定义usernameParameter-->
+        <input type="text" name="username" placeholder="username"/>
+    </div>
+    <div>
+        <!--这里name默认为password，如果需要改动，则在表单登陆设置formLogin中重定义passwordParameter-->
+        <input type="password" name="password" placeholder="password"/>
+    </div>
+    <input type="submit" value="login"/>
+</form>
+</body>
+</html>
